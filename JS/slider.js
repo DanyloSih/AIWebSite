@@ -1,19 +1,45 @@
 const pizzaCards = document.querySelectorAll(".pizza-card");
+const pizzaPanel = document.querySelector(".pizza-panel");
 const prevBtn = document.querySelector("#prev-btn");
 const nextBtn = document.querySelector("#next-btn");
 
 let currentIndex = 0;
 
-pizzaCards[currentIndex].classList.add("active");
+pizzaCards[0].classList.add("active");
+let cardsPerPage = Math.floor(pizzaPanel.offsetWidth / pizzaCards[0].offsetWidth *0.9);
 
-prevBtn.addEventListener("click", function() {
-  pizzaCards[currentIndex].classList.remove("active");
-  currentIndex = currentIndex > 0 ? currentIndex - 1 : pizzaCards.length - 1;
-  pizzaCards[currentIndex].classList.add("active");
+pizzaCards.forEach((card, index) => {
+  if (index >= currentIndex && index < currentIndex + cardsPerPage) {
+    card.style.display = "block";
+  } else {
+    card.style.display = "none";
+  }
 });
 
-nextBtn.addEventListener("click", function() {
-  pizzaCards[currentIndex].classList.remove("active");
-  currentIndex = currentIndex < pizzaCards.length - 1 ? currentIndex + 1 : 0;
-  pizzaCards[currentIndex].classList.add("active");
+prevBtn.addEventListener("click", function () {
+  currentIndex =
+    currentIndex - cardsPerPage >= 0
+      ? currentIndex - cardsPerPage
+      : pizzaCards.length - (pizzaCards.length % cardsPerPage);
+  pizzaCards.forEach((card, index) => {
+    if (index >= currentIndex && index < currentIndex + cardsPerPage) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+});
+
+nextBtn.addEventListener("click", function () {
+  currentIndex =
+    currentIndex + cardsPerPage < pizzaCards.length
+      ? currentIndex + cardsPerPage
+      : 0;
+  pizzaCards.forEach((card, index) => {
+    if (index >= currentIndex && index < currentIndex + cardsPerPage) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
 });

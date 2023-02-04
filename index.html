@@ -6,6 +6,7 @@
   <title>Cirzzar Curr</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/cart.css">
+  <link rel="stylesheet" href="css/contacts.css">
 </head>
 
 <body>
@@ -15,12 +16,20 @@
     <nav>
       <a href="#">Home</a>
       <a href="#">Menu</a>
-      <a href="#">Contact</a>
+      <a href="#contact">Contact</a>
       <div class="show-cart-btn">
         <img src="Resources/shopping-cart.png" alt="Shopping Cart">
       </div>
     </nav>
   </header>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-sidebar">
+    <div class="close-cart-btn">X</div>
+
+    <!-- Cart Total -->
+    <div class="cart-total">Total: ₴0.00</div>
+  </div>
 
   <div class="pizza-panel">
     <div class="arrow left" id="prev-btn">&lt;</div>
@@ -96,14 +105,15 @@
     <div class="arrow right" id="next-btn">&gt;</div>
   </div>
 
-  <!-- Cart Sidebar -->
-  <div class="cart-sidebar">
-    <div class="close-cart-btn">X</div>
-
-    <!-- Cart Total -->
-    <div class="cart-total">Total: ₴0.00</div>
+  <div id="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <textarea placeholder="Message"></textarea>
+      <button type="submit">Send</button>
+    </form>
   </div>
-
   <footer>
     <p>Copyright &copy; 2023 Cirzzar Curr Pizzeria</p>
   </footer>
