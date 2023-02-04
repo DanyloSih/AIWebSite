@@ -6,7 +6,7 @@ const nextBtn = document.querySelector("#next-btn");
 let currentIndex = 0;
 
 pizzaCards[0].classList.add("active");
-let cardsPerPage = Math.floor(pizzaPanel.offsetWidth / pizzaCards[0].offsetWidth *0.9);
+let cardsPerPage = Math.floor(pizzaPanel.offsetWidth / pizzaCards[0].offsetWidth * 0.9);
 
 pizzaCards.forEach((card, index) => {
   if (index >= currentIndex && index < currentIndex + cardsPerPage) {
@@ -21,17 +21,17 @@ prevBtn.addEventListener("click", function () {
     currentIndex - cardsPerPage >= 0
       ? currentIndex - cardsPerPage
       : pizzaCards.length - (pizzaCards.length % cardsPerPage);
-      pizzaCards.forEach((card, index) => {
-        if (index >= currentIndex && index < currentIndex + cardsPerPage) {
-          card.classList.remove("animate-out");
-          card.classList.add("animate-in");
-          card.style.display = "block";
-        } else {
-          card.classList.remove("animate-in");
-          card.classList.add("animate-out");
-          card.style.display = "none";
-        }
-      });
+  pizzaCards.forEach((card, index) => {
+    if (index >= currentIndex && index < currentIndex + cardsPerPage) {
+      card.classList.remove("animate-out");
+      card.classList.add("animate-in");
+      card.style.display = "block";
+    } else {
+      card.classList.remove("animate-in");
+      card.classList.add("animate-out");
+      card.style.display = "none";
+    }
+  });
 });
 
 nextBtn.addEventListener("click", function () {
@@ -39,15 +39,15 @@ nextBtn.addEventListener("click", function () {
     currentIndex + cardsPerPage < pizzaCards.length
       ? currentIndex + cardsPerPage
       : 0;
-      pizzaCards.forEach((card, index) => {
-        if (index >= currentIndex && index < currentIndex + cardsPerPage) {
-          card.classList.remove("animate-out");
-          card.classList.add("animate-in");
-          card.style.display = "block";
-        } else {
-          card.classList.remove("animate-in");
-          card.classList.add("animate-out");
-          card.style.display = "none";
-        }
-      });
+  pizzaCards.forEach((card, index) => {
+    if (index >= currentIndex && index < currentIndex + cardsPerPage) {
+      card.classList.remove("animate-out");
+      card.classList.add("animate-in");
+      card.style.display = "block";
+    } else {
+      card.classList.remove("animate-in");
+      card.classList.add("animate-out");
+      card.style.display = "none";
+    }
+  });
 });
